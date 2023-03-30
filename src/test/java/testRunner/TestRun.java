@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features="Features", 
+		features="Features/Customers.feature", 
 		glue="stepDefinition", 
 		dryRun=false,
 		plugin= {"pretty", 

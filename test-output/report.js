@@ -1,16 +1,16 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:Features/Login.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:Features/Customers.feature");
 formatter.feature({
-  "name": "Login",
+  "name": "Customers",
   "description": "",
   "keyword": "Feature"
 });
 formatter.scenario({
-  "name": "Successful Login with Valid Credentials",
+  "name": "Add a new Customer",
   "description": "",
   "keyword": "Scenario"
 });
 formatter.step({
-  "name": "User Launch Firefox browser",
+  "name": "User Launch Chrome browser",
   "keyword": "Given "
 });
 formatter.match({
@@ -50,34 +50,68 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "Page Title should be \"Dashboard / nopCommerce administration\"",
+  "name": "User can view Dashboad",
   "keyword": "Then "
 });
-formatter.match({
-  "location": "steps.page_Title_should_be(String)"
-});
+formatter.match({});
 formatter.result({
-  "status": "passed"
+  "status": "undefined"
 });
 formatter.step({
-  "name": "User click on Logout link",
+  "name": "User click on customer menu",
   "keyword": "When "
 });
-formatter.match({
-  "location": "steps.user_click_on_Logout_link()"
-});
+formatter.match({});
 formatter.result({
-  "status": "passed"
+  "status": "undefined"
 });
 formatter.step({
-  "name": "Page Title should be \"Your store. Login\"",
+  "name": "click on customer Menu Item",
+  "keyword": "And "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.step({
+  "name": "click on Add new button",
+  "keyword": "And "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.step({
+  "name": "User can view Add new customer page",
   "keyword": "Then "
 });
-formatter.match({
-  "location": "steps.page_Title_should_be(String)"
-});
+formatter.match({});
 formatter.result({
-  "status": "passed"
+  "status": "undefined"
+});
+formatter.step({
+  "name": "User enter customer info",
+  "keyword": "When "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.step({
+  "name": "click on save button",
+  "keyword": "And "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.step({
+  "name": "User can view confirmation message \"The new customer has been added successfully.\"",
+  "keyword": "Then "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
 });
 formatter.step({
   "name": "close browser",
@@ -87,6 +121,6 @@ formatter.match({
   "location": "steps.close_browser()"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 });
