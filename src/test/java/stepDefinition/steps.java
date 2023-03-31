@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import cucumber.api.java.en.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import pageObjects.AddcustomerPage;
 import pageObjects.LoginPage;
 
 public class steps extends BaseClass{
@@ -18,6 +19,7 @@ public class steps extends BaseClass{
 //		driver = new ChromeDriver();
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
+		driver.manage().window().maximize();
 	    lp=new LoginPage(driver);
 	}
 
@@ -62,29 +64,36 @@ public class steps extends BaseClass{
 	
 	//Customer page
 	
+	
+	
 	@Then("User can view Dashboad")
 	public void user_can_view_Dashboad() {
-	    
+		String title = driver.getTitle();
+		System.out.println(title);
+		addCust = new AddcustomerPage(driver);
+		Assert.assertEquals("Dashboard / nopCommerce administration",addCust.getPageTitle());
 	}
 
 	@When("User click on customer menu")
-	public void user_click_on_customer_menu() {
-	   
+	public void user_click_on_customer_menu() throws InterruptedException {
+	    Thread.sleep(3000);
+		addCust.clickOnCustomerMenu();
 	}
 
 	@When("click on customer Menu Item")
-	public void click_on_customer_Menu_Item() {
-	    
+	public void click_on_customer_Menu_Item() throws InterruptedException {
+		Thread.sleep(3000);
+		addCust.clickOnCustomerMenuItem();
 	}
 
 	@When("click on Add new button")
 	public void click_on_Add_new_button() {
-
+		addCust.clickOnAddnew();
 	}
 
 	@Then("User can view Add new customer page")
 	public void user_can_view_Add_new_customer_page() {
-	    
+	    Assert.assertEquals("Add a new customer / nopCommerce administration", addCust.getPageTitle());
 	}
 
 	@When("User enter customer info")

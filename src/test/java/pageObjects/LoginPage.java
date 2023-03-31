@@ -45,6 +45,7 @@ public class LoginPage {
 		WebElement ele=waitForElement(logout,15);
 				ele.click();
 	}
+	
 	private static WebElement waitForElement(By locator, int timeout)
 	{
 	    WebElement element=new WebDriverWait(ldriver,timeout).until(ExpectedConditions.presenceOfElementLocated(locator));

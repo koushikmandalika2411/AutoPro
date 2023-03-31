@@ -60,33 +60,6 @@ Scenario: Add a new Customer
 	Then User can view confirmation message "The new customer has been added successfully."
 	And close browser  
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	

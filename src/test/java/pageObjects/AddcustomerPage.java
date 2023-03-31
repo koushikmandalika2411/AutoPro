@@ -2,18 +2,28 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AddcustomerPage {
 	
 	public static WebDriver driver;
 	public AddcustomerPage(WebDriver driver) {
-		//ldriver = rdriver;
+		 this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	By lnkCustomer_menu = By.xpath("/html/body/div[3]/aside/div/div[4]/div/div/nav/ul/li[4]/a/p");
-	By lnkCustomer_menuitem = By.xpath("/html/body/div[3]/aside/div/div[4]/div/div/nav/ul/li[4]/ul/li[1]/a/p");
+	public String getPageTitle() {
+		return driver.getTitle();
+	}
+	
+	By lnkCustomer_menu = By.xpath("//a[@class='nav-link']//p[text()=' Customers']");
+	//html/body/div[3]/aside/div/div[4]/div/div/nav/ul/li[4]/ul/li[1]/a/p
+	//p[text()=' Customers']
+	
+	By lnkCustomer_menuitem = By.xpath("//a/p[text()=' Customers']");
 	
 	By btnAddnew = By.xpath("/html/body/div[3]/div[1]/form[1]/div/div/a");
 	
@@ -50,11 +60,12 @@ public class AddcustomerPage {
 	By btnSave = By.xpath("/html/body/div[3]/div[1]/form/div[1]/div/button[1]");
 	
 	
-	public void clickOnCustomerMenu() {
-		driver.findElement(lnkCustomer_menu).click();		
-	}
+//	public void clickOnCustomerMenu() {
+//		driver.findElement(lnkCustomer_menu).click();		
+//	}
 	
-	public void clickOnCustomerMenuItem() {
+	public void clickOnCustomerMenuItem() throws InterruptedException {
+		Thread.sleep(5000);
 		driver.findElement(lnkCustomer_menuitem).click();		
 	}
 	
@@ -72,6 +83,16 @@ public class AddcustomerPage {
 	public void setFirstName(String firstName) {
 		driver.findElement(txtFirstName).clear();
 		driver.findElement(txtFirstName).sendKeys(firstName);
+	}
+	public void clickOnCustomerMenu() {
+		WebElement ele=customer(lnkCustomer_menu,60);
+				//ele.click();
+	}
+	
+	private static WebElement customer(By locator, int timeout)
+	{
+	    WebElement element=new WebDriverWait(driver,timeout).until(ExpectedConditions.elementToBeClickable(locator));
+	    return element;
 	}
 	
 

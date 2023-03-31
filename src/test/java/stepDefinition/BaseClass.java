@@ -10,10 +10,11 @@ import pageObjects.LoginPage;
 
 public class BaseClass {
 	
-	public WebDriver driver;
+	public static WebDriver driver;
 	public LoginPage lp;
-	public AddcustomerPage addcust;
+	public AddcustomerPage addCust;
 	
+	//Created for geerating the unique emailid randomly.  
 	public static String randomestring() {
 		 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");  
 		   LocalDateTime now = LocalDateTime.now();  
