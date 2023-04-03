@@ -1,6 +1,7 @@
 package stepDefinition;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -97,18 +98,37 @@ public class steps extends BaseClass{
 	}
 
 	@When("User enter customer info")
-	public void user_enter_customer_info() {
-	   
+	public void user_enter_customer_info() throws InterruptedException {
+		String email = "Sai"+randomestring()+"@gmail.com";
+		String pass = "P"+randomestring();
+		addCust.setEmail(email);
+		System.out.println(email);
+		addCust.setPassword(pass);
+		System.out.println(pass);
+		addCust.setFirstName("Koushik");
+		addCust.setLastName("Sai");
+		addCust.setGender("Male");
+		Thread.sleep(2000);
+		addCust.setDateOfBirth("4/14/2023");
+		Thread.sleep(2000);
+		addCust.setCompanyName("KoushikCompany");
+		addCust.clickOnExempt();
+		addCust.setNewsletter("Your Store Name");
+		addCust.setVendor("Vendor1");
+		addCust.checkActive(true);
+		addCust.setAdminCommit("Ramudu manchi baludu kadu......");	
 	}
 
 	@When("click on save button")
-	public void click_on_save_button() {
-	    
+	public void click_on_save_button() throws InterruptedException {
+		addCust.clickOnSave();
+		Thread.sleep(3000);
 	}
 
 	@Then("User can view confirmation message {string}")
 	public void user_can_view_confirmation_message(String string) {
-	   
+	   Assert.assertTrue(driver.findElement(By.tagName("body")).getText().contains("The new customer has been added successfully"));
+	   System.out.println("Customer Created Successdully");
 	}
 	
 }

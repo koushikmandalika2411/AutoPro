@@ -18,7 +18,7 @@ public class BaseClass {
 	public static String randomestring() {
 		 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");  
 		   LocalDateTime now = LocalDateTime.now();  
-		   System.out.println(dtf.format(now));
+		   //System.out.println(dtf.format(now));
 		return dtf.format(now);   
 	}
    public static void main(String[] args) {
